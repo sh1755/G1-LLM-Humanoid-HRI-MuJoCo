@@ -1,0 +1,53 @@
+G1 loaded: /home/claude/RO603_Week8_Unitree_G1_Speech_LLM_Control_ROS2/models/unitree_g1  (fixed base, 29 motors, dt=2 ms)
+Interpreter backend: rule
+
+you> Hello robot!
+  [rule  ] request   {'actions': ['none'], 'speech': 'Hello! I am Unitree G1.'}  (1.2 ms)
+  [valid.] approved  ['(speech only)']  (0.02 ms)
+  G1 says: "Hello! I am Unitree G1."
+
+you> Can you wave your hand?
+  [rule  ] request   {'actions': ['wave_right_hand'], 'speech': 'Hello! Nice to meet you.'}  (0.1 ms)
+  [valid.] approved  ['wave_right_hand']  (0.01 ms)
+  G1 says: "Hello! Nice to meet you."
+  [sim   ] wave_right_hand: done after 7.50 s, trajectory start 2.4 ms, last tracking error 0.033 rad
+           saved assets/generated/g1_wave_right_hand.gif
+
+you> Raise both arms
+  [rule  ] request   {'actions': ['raise_both_arms'], 'speech': 'Raising both arms!'}  (0.1 ms)
+  [valid.] approved  ['raise_both_arms']  (0.01 ms)
+  G1 says: "Raising both arms!"
+  [sim   ] raise_both_arms: done after 7.12 s, trajectory start 2.2 ms, last tracking error 0.027 rad
+           saved assets/generated/g1_raise_both_arms.gif
+
+you> Return to neutral
+  [rule  ] request   {'actions': ['neutral'], 'speech': 'Returning to my neutral pose.'}  (0.2 ms)
+  [valid.] approved  ['neutral']  (0.01 ms)
+  G1 says: "Returning to my neutral pose."
+  [sim   ] neutral: done after 1.50 s, trajectory start 0.7 ms, last tracking error 0.034 rad
+           saved assets/generated/g1_neutral.gif
+
+you> Tell me about humanoid robots
+  [rule  ] request   {'actions': ['none'], 'speech': 'Humanoid robots have a human-like body: a head, torso, two arms and two legs. That lets them use spaces and tools designed for people and makes interaction with humans feel natural.'}  (0.1 ms)
+  [valid.] approved  ['(speech only)']  (0.01 ms)
+  G1 says: "Humanoid robots have a human-like body: a head, torso, two arms and two legs. That lets them use spaces and tools designed for people and makes interaction with humans feel natural."
+
+you> G1, introduce yourself and then wave at me
+  [rule  ] request   {'actions': ['wave_right_hand'], 'speech': 'I am Unitree G1, a humanoid robot running in a MuJoCo simulation and controlled through ROS 2.'}  (0.2 ms)
+  [valid.] approved  ['wave_right_hand']  (0.01 ms)
+  G1 says: "I am Unitree G1, a humanoid robot running in a MuJoCo simulation and controlled through ROS 2."
+  [sim   ] wave_right_hand: done after 7.50 s, trajectory start 2.3 ms, last tracking error 0.034 rad
+           saved assets/generated/g1_wave_right_hand.gif
+
+you> Do a backflip
+  [rule  ] request   {'actions': ['none'], 'speech': 'Sorry, I did not understand. You can ask me to wave, raise my arms, point, bow or return to neutral.'}  (0.1 ms)
+  [valid.] approved  ['(speech only)']  (0.01 ms)
+  G1 says: "Sorry, I did not understand. You can ask me to wave, raise my arms, point, bow or return to neutral."
+
+--- What if a (misbehaving) LLM returns something unsafe? ---
+  LLM output {'actions': ['backflip'], 'speech': 'Watch this!'}
+    -> REJECTED: action 'backflip' is not on the approved list
+  LLM output {'actions': ['wave_right_hand'], 'speech': 'ok', 'joint_positions': [3.1, 3.1, 3.1, 3.1...
+    -> REJECTED: low-level fields are not allowed: ['joint_positions']
+  LLM output {'actions': ['bow', 'bow', 'bow', 'bow'], 'speech': 'bowing'}
+    -> REJECTED: too many actions (4 > 3)

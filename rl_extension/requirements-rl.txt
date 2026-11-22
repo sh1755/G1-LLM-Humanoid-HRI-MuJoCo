@@ -1,0 +1,6 @@
+# Project D (optional) - reinforcement learning extension
+stable-baselines3>=2.3     # tested with the version printed in rl_extension/runs/versions.txt
+gymnasium>=0.29
+matplotlib>=3.5
+# PyTorch is installed automatically by stable-baselines3. For a smaller CPU-only install:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu

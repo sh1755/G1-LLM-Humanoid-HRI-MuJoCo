@@ -1,0 +1,62 @@
+# RO603 Week 8 - Approved action allowlist for the simulated Unitree G1.
+#
+# Only the actions listed under `actions:` can ever reach the simulator.
+# The LLM may *name* an action; it can never supply joint angles.
+# Each motion action must have a matching primitive in motion_primitives.py
+# (checked by tests/test_action_catalog.py).
+
+robot_name: "Unitree G1"
+
+safety:
+  max_actions_per_request: 3        # longer sequences are rejected
+  max_speech_chars: 300             # long LLM answers are truncated
+  min_seconds_between_requests: 0.5 # simple rate limit in the validator
+  action_timeout_s: 15.0            # monitor flags actions that never finish
+  llm_timeout_s: 20.0               # cloud/local LLM request timeout
+  physical_robot_enabled: false     # hard-disabled; see docs/SAFETY.md
+
+actions:
+  none:
+    type: speech_only
+    description: "Speak only, no movement."
+    keywords: []
+  neutral:
+    type: motion
+    description: "Return both arms to the relaxed neutral pose."
+    keywords: ["neutral", "reset", "rest", "relax", "arms down", "put your arms down", "return"]
+    speech: "Returning to my neutral pose."
+  wave_right_hand:
+    type: motion
+    description: "Wave the right hand three times (greeting)."
+    keywords: ["wave your right", "wave right", "right hand wave", "wave"]
+    speech: "Hello! Nice to meet you."
+  wave_left_hand:
+    type: motion
+    description: "Wave the left hand three times."
+    keywords: ["wave your left", "wave left", "left hand wave", "left hand"]
+    speech: "Waving with my left hand."
+  raise_both_arms:
+    type: motion
+    description: "Raise both arms above the head, then lower them."
+    keywords: ["raise both", "both arms", "hands up", "arms up", "celebrate", "hooray"]
+    speech: "Raising both arms!"
+  raise_right_arm:
+    type: motion
+    description: "Raise the right arm above the head, then lower it."
+    keywords: ["raise your right", "raise right", "right arm up"]
+    speech: "Raising my right arm."
+  raise_left_arm:
+    type: motion
+    description: "Raise the left arm above the head, then lower it."
+    keywords: ["raise your left", "raise left", "left arm up"]
+    speech: "Raising my left arm."
+  point_forward:
+    type: motion
+    description: "Point forward with the right arm."
+    keywords: ["point", "point forward", "show me"]
+    speech: "Pointing forward."
+  bow:
+    type: motion
+    description: "Polite bow by pitching the waist forward."
+    keywords: ["bow", "take a bow", "thank you"]
+    speech: "Thank you!"

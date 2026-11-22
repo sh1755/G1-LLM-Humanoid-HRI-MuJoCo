@@ -1,0 +1,5 @@
+id,text,backend,actions,outcome,llm_ms,validation_ms,dispatch_ms,input_to_motion_ms,input_to_done_ms,notes
+ff3d2bae,raise both arms,rule,raise_both_arms,stopped,0.3,0.1,4.1,4.6,51.5,
+943d4a7f,wave,rule,,rejected,,,,,,emergency stop is active; requests are arriving too quickly
+de88ceb3,return to neutral,rule,neutral,done,0.3,0.1,1.0,1.4,45.4,
+bd52657a,"Hello G1, please wave your right hand.",rule,wave_right_hand,done,0.8,0.1,2.6,3.6,221.9,

@@ -1,0 +1,16 @@
+# Python packages for the RO603 Week 8 practical (Ubuntu 22.04, ROS 2 Humble, Python 3.10).
+# ROS 2 itself (rclpy, std_msgs, sensor_msgs, launch) comes from apt, not pip.
+numpy>=1.21,<2          # keep 1.x: matches ROS 2 Humble's apt numpy
+mujoco>=3.2,<5          # pip gives 3.17.0 on Python 3.10 (tested: 3.17.0 and 4.0.1)
+PyYAML>=5.4
+imageio>=2.20           # GIF recording in examples/offline_pipeline_demo.py
+# --- speech input (Project B) ---
+sounddevice>=0.4.6      # microphone access (needs: sudo apt install libportaudio2)
+vosk>=0.3.45            # offline streaming speech-to-text
+# openai-whisper        # optional: uncomment for stt_engine:=whisper (installs PyTorch, ~2 GB)
+# --- speech output ---
+# piper-tts             # optional neural TTS (GPL-3.0); default TTS is espeak-ng (apt)
+# --- LLM (Project C) ---
+# No SDK needed: OpenAI and Ollama are called over HTTPS/HTTP with the standard library.
+# --- tests ---
+pytest>=7
