@@ -1,0 +1,52 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# ROS 2 generated files: retain ros2_ws/src/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+build/
+install/
+log/
+
+# Local editor files
+.vscode/
+.idea/
+.DS_Store
+*~
+
+# Personal recordings, logs, run outputs
+*.wav
+*.mp3
+*.mp4
+*.avi
+*.log
+*.bag
+*.db3
+*.mcap
+ro603_hri_logs/
+logs/
+rl_extension/runs/
+
+# Optional downloadable Vosk model
+vosk-model*/
+models/vosk-model*/
+
+# Keep required G1 MuJoCo assets and upstream attribution if included in project.
