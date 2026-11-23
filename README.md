@@ -4,7 +4,7 @@
 
 A safety-aware human–robot interaction (HRI) project in which typed or spoken natural-language instructions are interpreted by a rule-based parser or an optional large language model (LLM), validated against permitted robot actions, and executed by a simulated **Unitree G1 humanoid** in **MuJoCo**. Internally the project uses **ROS 2 Humble** to connect the interaction, safety, simulation, and monitoring nodes.
 
-> **Repository setup:** The documentation is available here; the complete Python/ROS 2 source folder must be pushed from the original project directory before the run commands below will work.
+
 
 ## What the project demonstrates
 
